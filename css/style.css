@@ -1,0 +1,42 @@
+input {
+	width:250px;
+}
+
+header{
+	text-align: center;
+}
+
+.info {
+	text-align: center;
+	margin-left:570px;
+	border: 1px solid #aaa;
+	width:350px;
+	padding:25px;
+}
+
+#myCanvas{
+	padding:10px;
+}
+
+.preview-wrap {
+	border:1px solid #aaa;
+	text-align: center;
+	float:left;
+	margin:0 25px 25px 25px;
+}
+
+footer{
+	clear:both;
+}
+
+.cf {
+  zoom: 1;
+}
+.cf:before,
+.cf:after {
+  content: "";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}

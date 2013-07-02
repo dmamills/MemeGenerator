@@ -1,0 +1,40 @@
+<html ng-app>
+<head> 
+<title>Meme Generator </title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script src="js/console-image.min.js"></script>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/script.min.js"></script>
+</head>
+<body>
+<div ng-controller="ctrl">
+
+
+<header><h1>MEME GENERATOR</h1></header>
+
+    <div class="preview-wrap cf"> 
+    	<h1> Preview </h1> 
+    	<div class="canvas"></div> 
+    </div>
+
+    <div class="info">
+   	    <fieldset>
+    		<legend> Meme Settings </legend>
+    		<input width="75px" type="text" id="toptext" ng-model='toptext' ng-change="alterMeme()" placeholder="top text"/>
+    		<input type="text" id="bottomtext" ng-model='bottomtext' ng-change="alterMeme()" placeholder="bottom text"/>   	
+    		<select id="meme-list" ng-model='selectedMeme' ng-change="alterMeme()"></select>
+    		<button class="btn btn-large btn-primary" ng-click="createImage()">Create Image</button>	
+    	</fieldset>
+
+    	<h3>Picture Output</h3>
+    	<img class="img-polaroid" ng-src='{{download}}' id='imgtest'></img>
+    </div>
+ </div>
+
+ <footer> 
+ 	This was a small hack by <a href="http://twitter.com/__rodan">@__rodan</a> Built with angularjs, and <a href="https://github.com/dunxrion/console.image">console.image</a>
+ </footer>
+</body>
+</html>
