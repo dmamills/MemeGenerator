@@ -1,5 +1,4 @@
 
-    		var imgEl;
 
     		function ctrl($scope) {
 
@@ -17,12 +16,8 @@
 
 	    				var canvas = document.getElementById('myCanvas');
 	    				$scope.download = canvas.toDataURL();
-
-	    				$('#outputModal').modal({
-
-	    				});
-						if(imgEl.attr('src') == '#')
-							imgEl.show();
+	    				
+	    				$('#outputModal').modal('show');
 	    			}
 	    	}
 
@@ -34,10 +29,5 @@
 					$('#meme-list').append('<option>'+meme+'</option>');
 				}
 					memeList.selectedIndex = 1;
-					console.meme('','','10 Guy');	
-				 	
-				 	imgEl = $('#imgtest');
-					if(imgEl.attr('src') == '#')
-						imgEl.hide();
-
+					console.meme('','','10 Guy');
 			});
