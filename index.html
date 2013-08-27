@@ -27,24 +27,11 @@
     			<input width="75px" type="text" id="toptext" ng-model='toptext' ng-change="alterMeme()" placeholder="top text"/>
     			<input type="text" id="bottomtext" ng-model='bottomtext' ng-change="alterMeme()" placeholder="bottom text"/>   	
     			<select id="meme-list" ng-model='selectedMeme' ng-change="alterMeme()"></select>
-    			<button class="btn btn-large btn-primary" ng-click="createImage()">Create Image</button>
+    			<button class="btn btn-large btn-primary" id="createBtn">Save Image</button>
     		</fieldset>
 		</div>
 
      </div>
-    <div class="modal hide fade" style="width:550px; height:500px;" id="outputModal">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">x</button>
-			<h3> Picture Output</h3>
-		</div>
-		<div class="modal-body">
-			<img class="img-polaroid" ng-src='{{download}}' id='imgtest'></img>
-		</div>
-		<div class="modal-footer">
-			 <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-   			 <button id="saveBtn" class="btn btn-primary">Save Image</button>
-		</div>
- 	</div>
  </div>
  <footer> 
  	by <a href="http://twitter.com/__rodan">@__rodan</a>

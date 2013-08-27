@@ -1,29 +1,24 @@
-
-
 function ctrl($scope) {
-
 		$scope.toptext = '';
 		$scope.bottomtext = '';
 		$scope.selectedMeme ='10 Guy';
-		$scope.download = '#';
-		
-
 		$scope.alterMeme = function(){
 			console.meme($scope.toptext,$scope.bottomtext,$scope.selectedMeme);		
-		}
-
-		$scope.createImage = function(){
-			var canvas = document.getElementById('myCanvas');
-			$scope.download = canvas.toDataURL();		
-			$('#outputModal').modal('show');
 		}
 }
 
 
+function create() {
+	var uri = document.getElementById('myCanvas').toDataURL();
+	downloadImage(uri,generateName());
+}
+
 function generateName() {
-	var uri = $('#imgtest').attr('src'),
-		name = $('#meme-list').val();
-		downloadImage(uri,name);
+	var n = [];
+	for(var i =0; i < 10;i++) {
+		n.push((Math.floor(Math.random() *16)).toString(16));
+	}
+	return n.join('');
 }
 
 function downloadImage(uri,name) {
@@ -33,16 +28,17 @@ function downloadImage(uri,name) {
 	link.click();
 }
 
-$(document).ready(function(){
 
-	var memeList = document.getElementById('meme-list');
+$(function() {
+	var memeListEl = document.getElementById('meme-list');
 
-	for(var meme in console.list){
-		$('#meme-list').append('<option>'+meme+'</option>');
+	for(var meme in console.list) {
+		var optionEl = document.createElement('option');
+		optionEl.value = optionEl.innerText = meme;
+		memeListEl.appendChild(optionEl);
 	}
-		memeList.selectedIndex = 1;
+		memeListEl.selectedIndex = 1;
 		console.meme('','','10 Guy');
-
-
-	$('#saveBtn').click(generateName);
+	
+	document.getElementById('createBtn').addEventListener('click',create);
 });
