@@ -24,7 +24,7 @@
 						<input type="text" ng-model='bottomtext' ng-change="alterMeme()" placeholder="bottom text"/>
 						<select ng-model="selectedMeme" ng-init="selectedMeme = memes[0]" ng-change="alterMeme()" ng-options="m.name for m in memes">
 						</select>
-						<button class="btn btn-large btn-primary" ng-click="create()">Save Image</button>
+						<a download="meme.png" class="btn btn-large btn-primary" ng-click="create()">Save Image</a>
 					</fieldset>
 				</div>
 				<footer> by <a href="http://twitter.com/dmamills">@dmamills</a> </footer>
