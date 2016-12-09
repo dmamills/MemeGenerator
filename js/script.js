@@ -30,9 +30,16 @@ angular.module('Meme',[])
 
 	function downloadImage(uri,name) {
 		var link = document.createElement('a');
-		link.download = name;
-		link.href = uri;
-		link.click();
+		link.setAttribute("href", uri);
+		link.setAttribute('download', name);
+
+		if (document.createEvent) {
+			var event = document.createEvent('MouseEvents');
+			event.initEvent('click', true, true);
+			link.dispatchEvent(event);
+		}
+		else
+			link.click();
 	};
 
 })
