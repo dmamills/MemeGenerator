@@ -1,34 +1,65 @@
 <html ng-app="Meme">
 	<head>
 		<title>Meme Generator</title>
+
+		<!-- Bootstrap -->
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-		<script src="js/jquery-1.9.1.min.js"></script>
+
+		<!-- Javascript -->
 		<script src="js/console-image.js"></script>
 		<script src="js/angular.min.js"></script>
 		<script src="js/script.js"></script>
+
 	</head>
 	<body>
+	<div class="container">
+
+		<br>
+		<h2 class="text-center">Meme Generator</h2>
+		<br>
+
 		<div ng-controller="MainController">
-			<header class="offset5"><h1>Meme Generator</h1></header>
-			<div class="container-fluid">
-				<div class="preview-wrap span8">
-					<legend> Preview </legend>
-					<div class="canvas"></div>
+
+				<div class="row">
+
+					<div class="col-xs-12 col-md-6">
+
+					  <div class="panel panel-default">
+					    <div class="panel-heading">
+								<h2>Preview</h2>
+							</div>
+					    <div class="panel-body">
+								<div class="canvas"></div>
+							</div>
+					  </div>
+
+					</div>
+
+
+					<div class="col-xs-12 col-md-6">
+
+						<div class="panel panel-default">
+					    <div class="panel-heading">
+								<h2>Meme Settings</h2>
+							</div>
+					    <div class="panel-body text-center">
+								<input type="text" class="form-control" ng-model='toptext' ng-change="alterMeme()" placeholder="top text"/>
+								<br>
+								<input type="text" class="form-control" ng-model='bottomtext' ng-change="alterMeme()" placeholder="bottom text"/>
+								<br>
+								<select class="form-control" ng-model="selectedMeme" ng-init="selectedMeme = memes[0]" ng-change="alterMeme()" ng-options="m.name for m in memes"></select>
+								<br>
+								<button class="btn btn-large btn-primary" ng-click="create()">Save Image</button>
+							</div>
+					  </div>
+
+					</div>
+
 				</div>
-				
-				<div class="info span4">
-				    <fieldset>
-						<legend>Meme Settings</legend>
-						<input width="75px" type="text" ng-model='toptext' ng-change="alterMeme()" placeholder="top text"/>
-						<input type="text" ng-model='bottomtext' ng-change="alterMeme()" placeholder="bottom text"/>
-						<select ng-model="selectedMeme" ng-init="selectedMeme = memes[0]" ng-change="alterMeme()" ng-options="m.name for m in memes">
-						</select>
-						<button class="btn btn-large btn-primary" ng-click="create()">Save Image</button>
-					</fieldset>
-				</div>
-				<footer> by <a href="http://twitter.com/dmamills">@dmamills</a> </footer>
+
+				<footer> by <a href="http://twitter.com/dmamills">@dmamills</a> &&  <a href="http://github.com/Helias">Helias</a></footer>
+
 			</div>
-		</div>
+		</div> <!-- end container -->
 	</body>
 </html>
